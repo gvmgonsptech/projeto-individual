@@ -4,6 +4,42 @@
     url(../assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf);
 }
 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -14,17 +50,17 @@
 
 /* ELEMENTOS */
 .sangue {
-  text-shadow: 0px 0px 8px #E00101;
+  text-shadow: 0px 0px 8px #e00101;
   font-weight: bold;
 }
 
 .conhecimento {
-  text-shadow: 0px 0px 8px #FAE415;
+  text-shadow: 0px 0px 8px #fae415;
   font-weight: bold;
 }
 
 .energia {
-  text-shadow: 0px 0px 8px #E900FA;
+  text-shadow: 0px 0px 8px #e900fa;
   font-weight: bold;
 }
 
@@ -46,7 +82,7 @@
 
 /* HEADER */
 .header {
-  margin: 10px
+  margin: 10px;
 }
 
 .header .logo {
@@ -59,16 +95,16 @@
 
 .header a {
   text-decoration: none;
-  text-shadow: 0px 0px 6px #FAE415;
+  text-shadow: 0px 0px 6px #fae415;
 }
 
 .header a:hover {
-  text-shadow: 0px 0px 6px #E900FA;
+  text-shadow: 0px 0px 6px #e900fa;
 }
 
 .header .atual {
   font-weight: 800;
-  text-shadow: 0px 0px 6px #E900FA;
+  text-shadow: 0px 0px 6px #e900fa;
 }
 
 .navbar {
@@ -104,7 +140,7 @@
 }
 
 .banner h2 {
-  text-shadow: 0px 0px 8px #FAE415;
+  text-shadow: 0px 0px 8px #fae415;
 }
 
 .banner p {
@@ -116,7 +152,8 @@
   background-color: transparent;
 }
 
-.banner p,h2 {
+.banner p,
+h2 {
   background-color: transparent;
 }
 
@@ -135,7 +172,7 @@
 }
 
 .lower .container h2 {
-  text-shadow: 0px 0px 8px #FAE415;
+  text-shadow: 0px 0px 8px #fae415;
 }
 
 .lower .container p {
@@ -159,7 +196,7 @@
   display: flex;
 }
 
-.criador .container .sobre{
+.criador .container .sobre {
   display: flex;
   text-align: center;
   align-items: center;
@@ -174,15 +211,13 @@
   margin: 1rem;
 }
 
-.criador .container img{
+.criador .container img {
   margin: 20px;
   border-radius: 50%;
-  box-shadow: 0px 0px 25px #FAE415;
+  box-shadow: 0px 0px 25px #fae415;
 }
 
-
 .elementos .container {
-  height: 400px;
   font-size: 20px;
   align-items: center;
   flex-direction: column;
@@ -193,17 +228,44 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px;
+  margin: 2rem;
 }
 
 .elementos .boxSangue {
   display: flex;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 500px;
-  margin: 30px
+  box-shadow: 0px 0px 8px #d0cde2;
+  border-radius: 10%;
+  transform: scale(1);
+  transition: 1s;
+}
+
+.boxSangue:hover {
+  box-shadow: 0px 0px 25px #e00101;
+  transition: 1s;
+  transform: scale(1.15);
+}
+
+.boxSangue p {
+  width: 150px;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s ;
+}
+
+.boxSangue:hover p {
+  transform: scale(1);
+  width: 300px;
+  height: 150px;
+  opacity: 1;
+  transition: 0.5s, opacity 1s;
 }
 
 .boxSangue img {
@@ -212,12 +274,39 @@
 
 .elementos .boxMorte {
   display: flex;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 500px;
-  margin: 30px
+  box-shadow: 0px 0px 8px #d0cde2;
+  border-radius: 10%;
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.boxMorte:hover {
+  box-shadow: 0px 0px 8px #0059ff;
+  transition: 0.5s;
+  transform: scale(1.15);
+}
+
+.boxMorte p {
+  width: 150px;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s ;
+}
+
+.boxMorte:hover p {
+  transform: scale(1);
+  width: 300px;
+  height: 125px;
+  opacity: 1;
+  transition: 0.5s, opacity 1s;
 }
 
 .boxMorte img {
@@ -226,12 +315,38 @@
 
 .elementos .boxMedo {
   display: flex;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 500px;
-  margin: 30px
+  box-shadow: 0px 0px 8px #d0cde2;
+  border-radius: 10%;
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.boxMedo:hover {
+  transition: 0.5s;
+  transform: scale(1.15);
+}
+
+.boxMedo p {
+  width: 150px;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s ;
+}
+
+.boxMedo:hover p {
+  transform: scale(1);
+  width: 300px;
+  height: 150px;
+  opacity: 1;
+  transition: 0.5s, opacity 1s;
 }
 
 .boxMedo img {
@@ -240,12 +355,39 @@
 
 .elementos .boxConhecimento {
   display: flex;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 500px;
-  margin: 30px
+  box-shadow: 0px 0px 8px #d0cde2;
+  border-radius: 10%;
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.boxConhecimento:hover {
+  box-shadow: 0px 0px 8px #fae415;
+  transition: 0.5s;
+  transform: scale(1.15);
+}
+
+.boxConhecimento p {
+  width: 150px;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s ;
+}
+
+.boxConhecimento:hover p {
+  transform: scale(1);
+  width: 300px;
+  height: 150px;
+  opacity: 1;
+  transition: 0.5s, opacity 1s;
 }
 
 .boxConhecimento img {
@@ -254,17 +396,41 @@
 
 .elementos .boxEnergia {
   display: flex;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 500px;
-  margin: 30px
+  box-shadow: 0px 0px 8px #d0cde2;
+  border-radius: 10%;
+  transform: scale(1);
+  transition: 0.5s;
 }
 
-.boxEnergia {
-
+.boxEnergia:hover {
+  box-shadow: 0px 0px 8px #e900fa;
+  transition: 0.5s;
+  transform: scale(1.15);
 }
+
+.boxEnergia p {
+  width: 150px;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.5s ;
+}
+
+.boxEnergia:hover p {
+  transform: scale(1);
+  width: 300px;
+  height: 175px;
+  opacity: 1;
+  transition: 0.5s, opacity 1s;
+}
+
 .boxEnergia img {
   width: 250px;
 }
