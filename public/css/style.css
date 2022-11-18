@@ -15,22 +15,27 @@
 /* ELEMENTOS */
 .sangue {
   text-shadow: 0px 0px 8px #E00101;
+  font-weight: bold;
 }
 
 .conhecimento {
   text-shadow: 0px 0px 8px #FAE415;
+  font-weight: bold;
 }
 
 .energia {
-  text-shadow: 0px 0px 6px #E900FA;
+  text-shadow: 0px 0px 8px #E900FA;
+  font-weight: bold;
 }
 
 .morte {
-  text-shadow: 0px 0px 6px #26148f;
+  text-shadow: 0px 0px 8px #0059ff;
+  font-weight: bold;
 }
 
 .medo {
-  text-shadow: 0px 0px 6px #d0cde2
+  text-shadow: 0px 0px 8px #d0cde2;
+  font-weight: bold;
 }
 
 .container {
@@ -143,34 +148,123 @@
 }
 
 .criador .container {
-  height: 400px;
   font-size: 20px;
   justify-content: space-evenly;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: 0 30px;
+  padding: 2rem 0;
 }
 
-.container .sobre{
+.criador .container .info {
+  display: flex;
+}
+
+.criador .container .sobre{
   display: flex;
   text-align: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.container .sobre img{
+.criador .sobre h2 {
+  margin: 1rem;
+}
+
+.criador .sobre h3 {
+  margin: 1rem;
+}
+
+.criador .container img{
   margin: 20px;
   border-radius: 50%;
   box-shadow: 0px 0px 25px #FAE415;
 }
 
-.container .curiosidade {
-  display: flex;
-  text-align: center;
+
+.elementos .container {
+  height: 400px;
+  font-size: 20px;
   align-items: center;
   flex-direction: column;
+  padding: 0 30px;
 }
 
-.curiosidade h3 {
-  margin: 30px;
+.elementos .container .cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px;
 }
 
+.elementos .boxSangue {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  margin: 30px
+}
+
+.boxSangue img {
+  width: 250px;
+}
+
+.elementos .boxMorte {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  margin: 30px
+}
+
+.boxMorte img {
+  width: 250px;
+}
+
+.elementos .boxMedo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  margin: 30px
+}
+
+.boxMedo img {
+  width: 250px;
+}
+
+.elementos .boxConhecimento {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  margin: 30px
+}
+
+.boxConhecimento img {
+  width: 250px;
+}
+
+.elementos .boxEnergia {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  margin: 30px
+}
+
+.boxEnergia {
+
+}
+.boxEnergia img {
+  width: 250px;
+}
