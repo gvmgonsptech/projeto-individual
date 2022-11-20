@@ -4,42 +4,6 @@
     url(../assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf);
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -117,6 +81,7 @@
 }
 
 /* BANNER */
+
 .banner {
   background-image: url("../assets/img/fundo_banner.jpeg");
   background-size: cover;
@@ -154,12 +119,179 @@
   background-color: transparent;
 }
 
-.banner p,
-h2 {
+.banner p,h2 {
   background-color: transparent;
 }
 
+.temp {
+  background-image: url("../assets/img/ordo_realitas.jpeg");
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 35%;
+  align-items: center;
+}
+
+.temp .blur {
+  background-color: #0f0f0fb2;
+  padding: 40px 0;
+}
+
+.temp .container {
+  height: 450px;
+  width: 60%;
+  font-size: 18px;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 30px;
+  border-radius: 10px;
+  box-shadow: #fae315ac 0px 0px 20px;
+}
+
+.temp .itens {
+  display: flex;
+  height: 90%;
+  flex-wrap: wrap;
+  margin: 10px;
+  align-items: center;
+  align-content: center;
+}
+
+.temp .container .campanhas {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  align-items: center;
+  align-content: center;
+}
+
+.campanhas li {
+  margin: 10px;
+}
+
+.campanhas img {
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #6a6971;
+  transition: .1s ease-in;
+}
+
+.campanhas img:hover {
+  box-shadow: 0px 0px 10px #6a6971;
+  transform: scale(.97);
+}
+
+/* PERSONAGENS */
+
+.personagens {
+  background-image: url(../assets/img/enredo.jpg);
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 35%;
+  align-items: center;
+  padding: 30px;
+}
+
+.personagens .container {
+  height: 650px;
+  font-size: 20px;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 30px;
+  border: 3px solid fuchsia;
+  border-radius: 10px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  flex-direction: row;
+}
+
+.tabsLabel {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.tabsRadio {
+   display: none;
+}
+
+.tabsContent {
+  order: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.tabsContent {
+  order: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.tabsContentL1 {
+  display: flex;
+}
+
+.tabsContentL2 {
+  display: flex;
+}
+
+.tabsRadio:checked+.tabsLabel{
+  font-weight: bold;
+  text-shadow: 0px 0px 6px #e900fa;
+}
+
+.tabsRadio:checked+.tabsLabel+.tabsContent {
+  display: flex;
+  align-items: center;
+  height: 600px;
+}
+
+.tabPersonagem {
+  display: flex;
+  margin: 20px;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.tabsContentL1 .tabPersonagem {
+  display: flex;
+  margin: 20px;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.tabsContentL2 .tabPersonagem {
+  display: flex;
+  margin: 20px;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.tabPersonagem .infoPersonagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* LOWER BANNER */
+
 .lower {
   align-items: center;
 }
@@ -182,6 +314,8 @@ h2 {
   font-size: 20px;
   text-align: center;
 }
+
+/* CONTAINER CRIADOR */
 
 .criador {
   align-items: center;
@@ -220,6 +354,8 @@ h2 {
   border-radius: 50%;
   box-shadow: 0px 0px 25px #fae415;
 }
+
+/* ELEMENTOS */
 
 .elementos .container {
   font-size: 20px;
@@ -437,4 +573,16 @@ h2 {
 
 .boxEnergia img {
   width: 250px;
+}
+
+.footer {
+  align-content: center;
+}
+
+.footer .container {
+  height: 100px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px;
 }
