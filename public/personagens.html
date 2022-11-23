@@ -10,6 +10,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/personagens.css" />
     <title>Ordem Paranormal - Temporadas</title>
   </head>
   <body>
@@ -34,290 +35,111 @@
     <div class="personagens">
       <div class="container">
         <div class="tabs">
-            <input type="radio" class="tabsRadio" name="tabTemp" id="radioOrdem" checked>
-            <label for="radioOrdem" class="tabsLabel">Ordem Paranormal</label>
-            <div class="tabsContent">
-                <ul class="tabPersonagem">
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Alexsander Kothe</label>
-                    </li> 
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Daniel Hartmann</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Elizabeth Webber</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Thiago Fritz</label>
-                    </li>
-                </ul>
-            </div>
+          <input
+            type="radio"
+            class="tabsRadio"
+            name="tabTemp"
+            id="radioOrdem"
+            value="0"
+            checked
+            onchange="mostrar()"
+          />
+          <label for="radioOrdem" class="tabsLabel">Ordem Paranormal</label>
 
-            <input type="radio" class="tabsRadio" name="tabTemp" id="radioSegredoF">
-            <label for="radioSegredoF" class="tabsLabel">Segredo na Floresta</label>
-            <div class="tabsContent">
-                <ul class="tabPersonagem">
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Arthur Cervero</label>
-                    </li> 
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Cesar Cohen</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Cristopher Cohen</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Elizabeth Webber</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Joui Jouki</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Thiago Fritz</label>
-                    </li>
-                </ul>
-            </div>
+          <input
+            type="radio"
+            class="tabsRadio"
+            name="tabTemp"
+            id="radioSegredoF"
+            value="1"
+            onchange="mostrar()"
+          />
+          <label for="radioSegredoF" class="tabsLabel"
+            >Segredo na Floresta</label
+          >
 
-            <input type="radio" class="tabsRadio" name="tabTemp" id="radioDesconjuracao">
-            <label for="radioDesconjuracao" class="tabsLabel">Desconjuração</label>
-            <div class="tabsContent">
-                <ul class="tabPersonagem">
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Arthur Cervero</label>
-                    </li> 
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Beatrice Portinari</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Dante</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Elizabeth Webber
-                        </label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Erin Parker</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Fernando Carvalho</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Joui Jouki</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Kaiser</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Luciano Carvalho</label>
-                    </li>
-                </ul>
-            </div>
+          <input
+            type="radio"
+            class="tabsRadio"
+            name="tabTemp"
+            id="radioDesconjuracao"
+            value="2"
+            onchange="mostrar()"
+          />
+          <label for="radioDesconjuracao" class="tabsLabel"
+            >Desconjuração</label
+          >
 
-            <input type="radio" class="tabsRadio" name="tabTemp" id="radioCalamidade">
-            <label for="radioCalamidade" class="tabsLabel">Calamidade</label>
-            <div class="tabsContent">
-                <ul class="tabPersonagem">
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Antônio Pontevedra</label>
-                    </li> 
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Artemis Deordelin</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Arthur Cervero</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Boris Lukic
-                        </label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Carina Leone</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Damir Lukic</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Dante</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Gal</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Joui Jouki</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Rubens Naluti</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Theodore Bagwell</label>
-                    </li>
-                </ul>
-            </div>
+          <input
+            type="radio"
+            class="tabsRadio"
+            name="tabTemp"
+            id="radioCalamidade"
+            value="3"
+            onchange="mostrar()"
+          />
+          <label for="radioCalamidade" class="tabsLabel">Calamidade</label>
 
-            <input type="radio" class="tabsRadio" name="tabTemp" id="radioSegredoI">
-            <label for="radioSegredoI" class="tabsLabel">O Segredo na Ilha</label>
-            <div class="tabsContent">
-                <ul class="tabPersonagem">
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Amelie Florence</label>
-                    </li> 
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Barbara Lima</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Milo Castello</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Olivier Florence</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Wanderley Nascimento</label>
-                    </li>
-                </ul>
-            </div>
+          <input
+            type="radio"
+            class="tabsRadio"
+            name="tabTemp"
+            id="radioSegredoI"
+            value="4"
+            onchange="mostrar()"
+          />
+          <label for="radioSegredoI" class="tabsLabel">O Segredo na Ilha</label>
 
-            <input type="radio" class="tabsRadio" name="tabTemp" id="radioSinais">
-            <label for="radioSinais" class="tabsLabel">Sinais do Outro Lado</label>
-            <div class="tabsContent">
-                <ul class="tabPersonagem">
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Alexandre</label>
-                    </li> 
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPers" class="medo">Chico Albuquerque</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Dara Venturini</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Guilherme R. Santos (Guizo)</label>
-                    </li>
-                    <li class="infoPersonagem">
-                        <a href="">
-                            <img src="assets/img/alexIcon.webp" alt="" id="infoPers">
-                        </a>
-                        <label for="infoPersonagem" class="medo">Lírio Tellini</label>
-                    </li>
-                </ul>
-            </div>
+          <input
+            type="radio"
+            class="tabsRadio"
+            name="tabTemp"
+            id="radioSinais"
+            value="5"
+            onchange="mostrar()"
+          />
+          <label for="radioSinais" class="tabsLabel"
+            >Sinais do Outro Lado</label
+          >
+        </div>
 
+        <div class="tabsContent" id="contentAOP">
+          <img
+            src="./assets/img/personagens/aop/alexsander_kothe.webp"
+            alt=""
+          />
+          <img src="./assets/img/personagens/aop/daniel_hartmann.webp" alt="" />
+          <img
+            src="./assets/img/personagens/aop/elizabeth_webber.webp"
+            alt=""
+          />
+          <img src="./assets/img/personagens/aop/thiago_fritz.webp" alt="" />
+        </div>
+        <div class="tabsContent" id="contentOSNF">
+          <img
+            src="./assets/img/personagens/osnf/arthur_cervero.webp"
+            alt="Arthur Cervero OSNF"
+          />
+          <img
+            src="./assets/img/personagens/osnf/cesar_cohen.webp"
+            alt="Cesar Cohen OSNF"
+          />
+          <img
+            src="./assets/img/personagens/osnf/cristopher_cohen.webp"
+            alt="Cristopher Cohen OSNF"
+          />
+          <img
+            src="./assets/img/personagens/osnf/elizabeth_webber.webp"
+            alt="Elizabeth Webber OSNF"
+          />
+          <img
+            src="./assets/img/personagens/osnf/joui_jouki.webp"
+            alt="Joui Jouki OSNF"
+          />
+          <img
+            src="./assets/img/personagens/osnf/thiago_fritz.webp"
+            alt="Thiago Fritz OSNF"
+          />
         </div>
       </div>
     </div>
@@ -327,6 +149,25 @@
         <h3 class="energia">Criado por um SPTecher, para outros SPTechers.</h3>
       </div>
     </div>
-
   </body>
 </html>
+<script>
+  var getTempTabs = document.getElementsByName("tabTemp");
+  var getDivTabs = document.getElementsByClassName("tabsContent");
+  console.log(getDivTabs);
+  function mostrar() {
+    for (var i = 0; i < getTempTabs.length; i++) {
+      if (getTempTabs[i].checked) {
+        var getChecked = []
+        
+        getChecked.push(getTempTabs[i].value)
+
+        if (getChecked.length > 0) {
+          for (let i = 0; i < getChecked.length; i++) {
+            var valueChecked = getChecked[i];
+          }
+        }
+      }
+    }
+  }
+</script>
