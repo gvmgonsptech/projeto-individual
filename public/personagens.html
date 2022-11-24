@@ -115,6 +115,7 @@
           />
           <img src="./assets/img/personagens/aop/thiago_fritz.webp" alt="" />
         </div>
+
         <div class="tabsContent" id="contentOSNF">
           <img
             src="./assets/img/personagens/osnf/arthur_cervero.webp"
@@ -141,6 +142,92 @@
             alt="Thiago Fritz OSNF"
           />
         </div>
+
+        <div class="tabsContent" id="contentDesconj">
+          <img
+            src="./assets/img/personagens/desconjuracao/arthur_cervero.webp"
+            alt="Arthur Cervero Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/beatrice_portinari.webp"
+            alt="Beatrice Portinari Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/dante.webp"
+            alt="Dante Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/elizabeth_webber.webp"
+            alt="Elizabeth Webber Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/erin_parker.webp"
+            alt="Erin Parker Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/fernando_carvalho.webp"
+            alt="Fernando Carvalho Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/joui_jouki.webp"
+            alt="Joui Jouki Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/kaiser.webp"
+            alt="Kaiser Desconjuração"
+          /><img
+            src="./assets/img/personagens/desconjuracao/luciano_carvalho.webp"
+            alt="Luciano Carvalho Desconjuração"
+          />
+        </div>
+
+        <div class="tabsContent" id="contentCalamid">
+          <img
+            src="./assets/img/personagens/calamidade/antonio_pontevedra.webp"
+            alt="Antonio Pontevedra Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/artemis_deordelin.webp"
+            alt="Artemis Deordelin Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/arthur_cervero.webp"
+            alt="Arthur Cervero Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/boris_lukic.webp"
+            alt="Boris Lukic Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/carina_leone.webp"
+            alt="Carina Leone Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/damir_lukic.webp"
+            alt="Damir Lukic Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/dante.webp"
+            alt="Dante Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/gal.webp"
+            alt="Gal Calamidade"
+          /><img
+            src="./assets/img/personagens/calamidade/joui_jouki.webp"
+            alt="Joui Jouki Calamidade"
+          />
+          <img
+            src="./assets/img/personagens/calamidade/rubens_naluti.webp"
+            alt="Rubens Naluti Calamidade"
+          />
+          <img
+            src="./assets/img/personagens/calamidade/theodore_bagwell.webp"
+            alt="Theodore Bagwell Calamidade"
+          />
+        </div>
+
+        <div class="tabsContent" id="contentOSNI">
+          <img src="./assets/img/personagens/osni/amelie_florence.webp" alt="OSNI">
+          <img src="./assets/img/personagens/osni/barbara_lima.webp" alt="OSNI">
+          <img src="./assets/img/personagens/osni/milo_castello.webp" alt="OSNI">
+          <img src="./assets/img/personagens/osni/olivier_florence.webp" alt="OSNI">
+          <img src="./assets/img/personagens/osni/wanderley_nascimento.webp" alt="OSNI">
+        </div>
+
+        <div class="tabsContent" id="contentSinais">
+          <img src="./assets/img/personagens/sinais/alexandre.webp" alt="Sinais">
+          <img src="./assets/img/personagens/sinais/chico_albuquerque.webp" alt="Sinais">
+          <img src="./assets/img/personagens/sinais/dara_venturini.webp" alt="Sinais">
+          <img src="./assets/img/personagens/sinais/guizo.webp" alt="Sinais">
+          <img src="./assets/img/personagens/sinais/lirio.webp" alt="Sinais">
+        </div>
       </div>
     </div>
 
@@ -151,20 +238,25 @@
     </div>
   </body>
 </html>
+
 <script>
   var getTempTabs = document.getElementsByName("tabTemp");
   var getDivTabs = document.getElementsByClassName("tabsContent");
-  console.log(getDivTabs);
+  getDivTabs[0].style.display = "grid";
+  var valueRadio;
+  var valueRadioChecked;
+
   function mostrar() {
     for (var i = 0; i < getTempTabs.length; i++) {
-      if (getTempTabs[i].checked) {
-        var getChecked = []
-        
-        getChecked.push(getTempTabs[i].value)
+      if (getTempTabs[i].checked == true) {
+        valueRadioChecked = getTempTabs[i].value;
 
-        if (getChecked.length > 0) {
-          for (let i = 0; i < getChecked.length; i++) {
-            var valueChecked = getChecked[i];
+        getDivTabs[valueRadioChecked].style.display = "grid";
+        for (var i = 0; i < getDivTabs.length; i++) {
+          if (getTempTabs[i].checked == false) {
+            valueRadio = getTempTabs[i].value;
+
+            getDivTabs[valueRadio].style.display = "none";
           }
         }
       }

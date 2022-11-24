@@ -1,8 +1,6 @@
 .personagens {
   background-image: url(../assets/img/enredo.jpg);
   background-size: cover;
-  background-position-x: 50%;
-  background-position-y: 35%;
   align-items: center;
   padding: 30px;
 }
@@ -10,10 +8,9 @@
 .personagens .container {
   height: 50%;
   width: 85%;
-  /* justify-content: space-evenly; */
   flex-direction: column;
   align-items: center;
-  border: 3px solid orange;
+  border-radius: 2%;
 }
 
 .tabs {
@@ -37,7 +34,7 @@
 }
 
 .tabsContent {
-  display: none;
+  display: block;
   height: 85%;
   width: 80%;
 }
@@ -48,6 +45,7 @@
 }
 
 #contentAOP {
+  display: none;
   grid-template-columns: 2fr 2fr;
   grid-template-rows: 2fr 2fr;
   justify-items: center;
@@ -59,12 +57,61 @@
 }
 
 #contentOSNF {
-  display: grid;
+  display: none;
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-rows: 2fr 2fr;
+  justify-items: center;
 }
 
 #contentOSNF img {
+  margin: 3%;
+  width: 80%;
+}
+
+#contentDesconj {
+  display: none;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr;
+  justify-items: center;
+}
+
+#contentDesconj img {
+  margin: 3%;
+  width: 80%;
+}
+
+#contentCalamid {
+  display: none;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr 2fr;
+  justify-items: center;
+}
+
+#contentCalamid img {
+  margin: 3%;
+  width: 80%;
+}
+
+#contentOSNI {
+  display: none;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  justify-items: center;
+}
+
+#contentOSNI img {
+  margin: 3%;
+  width: 80%;
+}
+
+#contentSinais {
+  display: none;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  justify-items: center;
+}
+
+#contentSinais img {
   margin: 3%;
   width: 80%;
 }
