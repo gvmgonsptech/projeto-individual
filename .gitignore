@@ -1,0 +1,9 @@
+node_modules
+modelagem ordem.mwb
+modelagem ordem.mwb.bak
+package-lock.json
+
+site/node_modules
+site/package-lock.json
+
+.github

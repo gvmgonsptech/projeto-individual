@@ -44,13 +44,16 @@
   display: flex;
 }
 
-/* HEADER */
-.header {
-  margin: 10px;
+.blur {
+  background-color: #0f0f0fb2;
+  padding: 40px 0;
 }
 
+/* HEADER */
+
 .header .logo {
-  width: 320px;
+  width: 200px;
+  margin: 10px;
 }
 
 .header .container {

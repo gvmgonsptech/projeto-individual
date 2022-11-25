@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link 
+      rel="stylesheet"
+      href="css/style.css"
+    />
+    <link 
+      rel="stylesheet" 
+      href="css/cadastro.css" 
+    />
+    <link
+      rel="shortcut icon"
+      href="assets/img/simbolo_diario_de_deus.webp"
+      type="image/x-icon"
+    />
+
+    <!-- SCRIPT DE FUNÇÕES -->
+    <script src="./js/funcoes.js"></script>
+
+    <title>Ordem Paranormal - Cadastro</title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <div class="container">
+        <img src="assets/img/logo.png" alt="" class="logo" />
+        <ul class="navbar">
+          <li>
+            <a href="index.html">Inicio</a>
+          </li>
+          <li>
+            <a href="temporadas.html"> Temporadas </a>
+          </li>
+          <li>
+            <a href="personagens.html"> Personagens </a>
+          </li>
+          <li class="atual">Perfil</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOX DE REGISTRO -->
+    <div class="boxRegister">
+      <div class="blur">
+        <div class="container">
+          <h2>Vire um marcado</h2>
+          <label for="iptUsername" class="labelRegister"
+            >Crie o seu username:</label
+          >
+          <input
+            type="text"
+            class="inputRegister"
+            placeholder="Username:"
+            id="iptUsername"
+          />
+          <label for="iptPassword" class="labelRegister"
+            >Crie a sua senha:</label
+          >
+          <input
+            type="password"
+            class="inputRegister"
+            placeholder="Senha:"
+            id="iptPassword"
+          />
+          <label for="iptConfirmPassword" class="labelRegister"
+            >Confirme a sua senha:</label
+          >
+          <input
+            type="password"
+            class="inputRegister"
+            placeholder="Confirmar Senha:"
+            id="iptConfirmPassword"
+          />
+          <label for="iptEmail" class="labelRegister"
+            >Insira o seu e-mail:</label
+          >
+          <input
+            type="text"
+            class="inputRegister"
+            placeholder="E-mail:"
+            id="iptEmail"
+          />
+          <label for="iptConfirmEmail" class="labelRegister"
+            >Confirme o seu e-mail:</label
+          >
+          <input
+            type="text"
+            class="inputRegister"
+            placeholder="Confirmar E-mail:"
+            id="iptConfirmEmail"
+          />
+
+          <label for="selElements" class="labelRegister"
+            >Qual elemento você terá afinidade?</label
+          >
+          <select name="elements" id="selElements" class="selElements">
+            <option value="">--</option>
+            <option value="sangue">Sangue</option>
+            <option value="morte">Morte</option>
+            <option value="energia">Energia</option>
+            <option value="conhecimento">Conhecimento</option>
+          </select>
+          <button class="buttonRegister" onclick="register()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <h3 class="energia">Criado por um SPTecher, para outros SPTechers.</h3>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function register() {
+    var username = iptUsername.value
+    var password = iptPassword.value
+    var confirmPassword = iptConfirmPassword.value
+  }
+</script>

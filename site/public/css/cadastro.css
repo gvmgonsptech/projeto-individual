@@ -1,0 +1,76 @@
+.boxRegister {
+  background-image: url("../assets/img/enredo.jpg");
+  background-size: cover;
+}
+
+.boxRegister .container {
+  box-shadow: 0px 0px 20px #e900fa;
+  padding: 1.5%;
+  border-radius: 4%;
+  height: 30%;
+  width: 40%;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.4rem;
+  flex-direction: column;
+}
+
+.container h2 {
+  text-shadow: 0px 0px 8px #e900fa;
+  margin-bottom: 30px;
+}
+
+.labelRegister {
+  font-weight: bold;
+  text-shadow: 0px 0px 8px #e900fa;
+}
+
+.inputRegister {
+  width: 40%;
+  height: 35px;
+  color: #0f0f0f;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #f1f1f1;
+}
+
+.inputRegister:focus {
+  outline: none;
+  box-shadow: 0px 0px 15px #e900fa;
+}
+
+.inputRegister::placeholder {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.selElements {
+  color: #797575;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.buttonRegister {
+  width: 10vw;
+  height: 7vh;
+  margin: 25px;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  background-color: #e900fa;
+  box-shadow: 0px 0px 10px #e900fa;
+}
+
+.buttonRegister:hover {
+  background-color: #9d00a9;
+  color: #f1f1f1c2;
+  box-shadow: 0px 0px 30px #9d00a9;
+}
