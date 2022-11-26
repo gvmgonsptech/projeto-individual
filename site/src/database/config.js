@@ -3,10 +3,10 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
-    server: "thermodata.database.windows.net",
-    database: "thermodata",
-    user: "222-1adsc-grupo1@bandtec.com.br",
-    password: "#Gfgrupo1",
+    server: "N/A",
+    database: "N/A",
+    user: "N/A",
+    password: "N/A",
     pool: {
         max: 10,
         min: 0,

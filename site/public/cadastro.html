@@ -5,14 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link 
-      rel="stylesheet"
-      href="css/style.css"
-    />
-    <link 
-      rel="stylesheet" 
-      href="css/cadastro.css" 
-    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cadastro.css" />
     <link
       rel="shortcut icon"
       href="assets/img/simbolo_diario_de_deus.webp"
@@ -49,50 +43,50 @@
     <div class="boxRegister">
       <div class="blur">
         <div class="container">
-          <h2>Vire um marcado</h2>
+          <h2>Vire um membro da Ordem:</h2>
           <label for="iptUsername" class="labelRegister"
-            >Crie o seu username:</label
+            >Crie o seu username</label
           >
           <input
             type="text"
             class="inputRegister"
-            placeholder="Username:"
+            placeholder="Username"
             id="iptUsername"
           />
           <label for="iptPassword" class="labelRegister"
-            >Crie a sua senha:</label
+            >Crie a sua senha</label
           >
           <input
             type="password"
             class="inputRegister"
-            placeholder="Senha:"
+            placeholder="Senha"
             id="iptPassword"
           />
           <label for="iptConfirmPassword" class="labelRegister"
-            >Confirme a sua senha:</label
+            >Confirme a sua senha</label
           >
           <input
             type="password"
             class="inputRegister"
-            placeholder="Confirmar Senha:"
+            placeholder="Confirmar Senha"
             id="iptConfirmPassword"
           />
           <label for="iptEmail" class="labelRegister"
-            >Insira o seu e-mail:</label
+            >Insira o seu e-mail</label
           >
           <input
             type="text"
             class="inputRegister"
-            placeholder="E-mail:"
+            placeholder="E-mail"
             id="iptEmail"
           />
           <label for="iptConfirmEmail" class="labelRegister"
-            >Confirme o seu e-mail:</label
+            >Confirme o seu e-mail</label
           >
           <input
             type="text"
             class="inputRegister"
-            placeholder="Confirmar E-mail:"
+            placeholder="Confirmar E-mail"
             id="iptConfirmEmail"
           />
 
@@ -101,12 +95,23 @@
           >
           <select name="elements" id="selElements" class="selElements">
             <option value="">--</option>
-            <option value="sangue">Sangue</option>
-            <option value="morte">Morte</option>
-            <option value="energia">Energia</option>
-            <option value="conhecimento">Conhecimento</option>
+            <option value="1">Sangue</option>
+            <option value="2">Morte</option>
+            <option value="3">Energia</option>
+            <option value="4">Conhecimento</option>
           </select>
-          <button class="buttonRegister" onclick="register()">Cadastrar</button>
+          <div id="cardErr">
+            <p id="pErrRegister">*Preencha os campos corretamente</p>
+          </div>
+          <div class="finishRegister">
+            <button class="buttonRegister" onclick="register()">
+              Cadastrar
+            </button>
+            <div class="loadingRegister">
+              <img src="./assets/img/" alt="" />
+              <div id="resultRegister"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -122,8 +127,80 @@
 
 <script>
   function register() {
-    var username = iptUsername.value
-    var password = iptPassword.value
-    var confirmPassword = iptConfirmPassword.value
+    var usernameVar = iptUsername.value;
+    var passwordVar = iptPassword.value;
+    var confirmPasswordVar = iptConfirmPassword.value;
+    var emailVar = iptEmail.value;
+    var confirmEmailVar = iptConfirmEmail.value;
+    var elementsVar = Number(selElements.value);
+
+    if (
+      usernameVar == "" ||
+      passwordVar == "" ||
+      confirmPasswordVar == "" ||
+      emailVar == "" ||
+      confirmEmailVar == "" ||
+      elementsVar == ""
+    ) {
+      cardErr.style.display = "block";
+      pErrRegister.innerHTML =
+        "Verifique se os campos estão preenchidos corretamente";
+
+      return false;
+
+    } else if (passwordVar != confirmPasswordVar) {
+      cardErr.style.display = "block";
+      pErrRegister.innerHTML =
+        "Verifique se os campos estão preenchidos corretamente";
+      
+      return false;
+
+    } else if (emailVar != confirmEmailVar) {
+      cardErr.style.display = "block";
+      pErrRegister.innerHTML =
+        "Verifique se os campos estão preenchidos corretamente";
+        
+      return false;
+
+    } else {
+      setInterval(clearErr, 5000);
+    }
+
+    fetch("/usuarios/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        usernameServer: usernameVar,
+        passwordServer: passwordVar,
+        emailServer: emailVar,
+        elementsServer: elementsVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErr.style.display = "block";
+          pErrRegister.style.color = "";
+          pErrRegister.innerHTML = "Cadastro feito com sucesso!";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+        } else {
+          throw "Houve um erro ao tentar fazer seu cadastro, tente novamente!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+  function clearErr() {
+    cardErr.style.display = "none";
   }
 </script>

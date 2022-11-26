@@ -60,23 +60,26 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function register(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
+    var username = req.body.usernameServer;
     var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+    var password = req.body.passwordServer;
+    var elements = req.body.elementsServer;
 
     // Faça as validações dos valores
-    if (nome == undefined) {
+    if (username == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    } else if (password == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (elements == undefined) {
+        res.status(400).send("Seu elemento está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.register(username, email, password, elements)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -96,7 +99,7 @@ function cadastrar(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    register,
     listar,
     testar
 }
