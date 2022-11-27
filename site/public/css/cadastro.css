@@ -28,6 +28,7 @@
 .inputRegister {
   width: 40%;
   height: 35px;
+  border: 0;
   color: #0f0f0f;
   font-size: 1.3rem;
   text-align: center;

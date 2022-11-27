@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="../assets/icon/favicon2.ico"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordem Paranormal - Comunidade</title>
+
+    <link rel="shortcut icon" href="./assets/img/simbolo_diario_de_deus.webp" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/comunidade.css" />
+    <script src="../js/funcoes.js"></script>
+  </head>
+
+  <body onload="" style="background-color: #161618">
+    <!-- <body onload="validarSessao()"> -->
+
+    <div class="janela">
+      <div class="profile">
+        <img src="./assets/img/logo.png" alt="" style="width: 300px; background-color: transparent;">
+
+        <div class="hello">
+          <h3>Bem vindo(a), agente <span id="showUsername">usuário</span>!</h3>
+          <p>Elemento: <span id="showElement">Elemento</span></p>
+        </div>
+
+        <div class="descElement">
+          <p>
+            Marcados de <span id="currentElement">XPTO</span> normalmente tem
+            algumas características em comum as quais são:
+          </p>
+        </div>
+
+        <div class="logout" onclick="limparSessao()">
+          <h3>Sair</h3>
+        </div>
+      </div>
+
+      <div class="dash-right">
+        <div class="avisos">
+          <div class="container">
+            <h1>Publicar um aviso</h1>
+            <div class="div-form">
+              <form
+                id="form_postagem"
+                method="post"
+                onsubmit="return publicar()"
+              >
+                <label>
+                  Título:
+                  <br />
+                  <input
+                    name="titulo"
+                    id="titulo"
+                    maxlength="100"
+                    type="text"
+                  />
+                </label>
+                <br />
+                <label>
+                  Descrição (máximo de 250 caracteres):
+                  <br />
+                  <textarea
+                    name="descricao"
+                    id="textarea_descricao"
+                    maxlength="250"
+                    rows="5"
+                  ></textarea>
+                </label>
+                <br />
+                <button>Enviar</button>
+              </form>
+            </div>
+            <h1>Comentários nas ultimas 24hrs</h1>
+            <div class="div-results">
+              <div id="feed_container" class="feed-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var currentUser = {
+    id: sessionStorage.ID_USER,
+    nome: sessionStorage.NAME_USER,
+    elemento: sessionStorage.ELEMENT_USER,
+  };
+
+  if (currentUser.elemento == 1) {
+    showElement.innerHTML = "Sangue";
+    showElement.style.textShadow = "0px 0px 8px red";
+    currentElement.innerHTML = "Sangue";
+  } else if (currentUser.elemento == 2) {
+    showElement.innerHTML = "Morte";
+    currentElement.innerHTML = "Morte";
+  } else if (currentUser.elemento == 3) {
+    showElement.innerHTML = "Energia";
+    showElement.style.textShadow = "0px 0px 8px purple";
+    currentElement.innerHTML = "Energia";
+  } else if (currentUser.elemento == 4) {
+    showElement.innerHTML = "Conhecimento";
+    showElement.style.textShadow = "0px 0px 8px yellow";
+    currentElement.innerHTML = "Conhecimento";
+  } else {
+    showElement.innerHTML = undefined;
+  }
+  showUsername.innerHTML = currentUser.nome;
+</script>

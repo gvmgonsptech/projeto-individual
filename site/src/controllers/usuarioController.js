@@ -24,17 +24,34 @@ function listar(req, res) {
         );
 }
 
-function entrar(req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+function listarElemento(req, res) {
+    usuarioModel.listarElemento()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+function entrar(req, res) {
+    var username = req.body.usernameServer;
+    var password = req.body.passwordServer;
+
+    if (username == undefined) {
+        res.status(400).send("Seu username está undefined!");
+    } else if (password == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
         
-        usuarioModel.entrar(email, senha)
+        usuarioModel.entrar(username, password)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);

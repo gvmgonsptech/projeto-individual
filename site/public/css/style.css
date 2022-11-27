@@ -5,9 +5,10 @@
 }
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   color: #f1f1f1;
+  box-sizing: border-box;
   background-color: #0f0f0f;
   font-family: Roboto Condensed;
 }
@@ -122,7 +123,8 @@
   background-color: transparent;
 }
 
-.banner p,h2 {
+.banner p,
+h2 {
   background-color: transparent;
 }
 
@@ -178,12 +180,12 @@
 .campanhas img {
   border-radius: 10px;
   box-shadow: 0px 0px 5px #6a6971;
-  transition: .1s ease-in;
+  transition: 0.1s ease-in;
 }
 
 .campanhas img:hover {
   box-shadow: 0px 0px 10px #6a6971;
-  transform: scale(.97);
+  transform: scale(0.97);
 }
 
 /* LOWER BANNER */
@@ -260,7 +262,7 @@
   padding: 0 30px;
 }
 
-.elementos .container .cards {
+.cards {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -293,7 +295,7 @@
   height: 0;
   opacity: 0;
   transform: scale(0);
-  transition: 0.5s ;
+  transition: 0.5s;
 }
 
 .boxSangue:hover p {
@@ -334,7 +336,7 @@
   height: 0;
   opacity: 0;
   transform: scale(0);
-  transition: 0.5s ;
+  transition: 0.5s;
 }
 
 .boxMorte:hover p {
@@ -374,7 +376,7 @@
   height: 0;
   opacity: 0;
   transform: scale(0);
-  transition: 0.5s ;
+  transition: 0.5s;
 }
 
 .boxMedo:hover p {
@@ -415,7 +417,7 @@
   height: 0;
   opacity: 0;
   transform: scale(0);
-  transition: 0.5s ;
+  transition: 0.5s;
 }
 
 .boxConhecimento:hover p {
@@ -456,7 +458,7 @@
   height: 0;
   opacity: 0;
   transform: scale(0);
-  transition: 0.5s ;
+  transition: 0.5s;
 }
 
 .boxEnergia:hover p {

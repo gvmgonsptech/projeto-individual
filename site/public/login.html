@@ -1,32 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/img/simbolo_diario_de_deus.webp"
+      type="image/x-icon"
+    />
+
+    <!-- SCRIPT DE FUNÇÕES -->
+    <script src="./js/funcoes.js"></script>
+
     <title>Ordem Paranormal - Login</title>
-</head>
-<body>
+  </head>
+
+  <body>
+    <!-- HEADER -->
     <div class="header">
+      <div class="container">
+        <img src="assets/img/logo.png" alt="" class="logo" />
+        <ul class="navbar">
+          <li>
+            <a href="index.html">Inicio</a>
+          </li>
+          <li>
+            <a href="temporadas.html"> Temporadas </a>
+          </li>
+          <li>
+            <a href="personagens.html"> Personagens </a>
+          </li>
+          <li class="atual">Perfil</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOX DE LOGIN -->
+    <div class="boxLogin">
+      <div class="blur">
         <div class="container">
-          <img src="assets/img/logo.png" alt="" class="logo" />
-          <ul class="navbar">
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
-            <li>
-              <a href="temporadas.html"> Temporadas </a>
-            </li>
-            <li>
-              <a href="personagens.html"> Personagens </a>
-            </li>
-            <li class="atual">
-               Perfil
-            </li>
-          </ul>
+          <h2>Insira suas credências:</h2>
+          <div class="inputsLogin">
+            <label for="iptUsername" class="labelLogin"
+              >Insira o seu usuário</label
+            >
+            <input
+              type="text"
+              class="inputLogin"
+              placeholder="Username"
+              id="iptUsername"
+            />
+            <label for="iptPassword" class="labelLogin"
+              >Insira a sua senha</label
+            >
+            <input
+              type="password"
+              class="inputLogin"
+              placeholder="Senha"
+              id="iptPassword"
+            />
+            <div class="linkRegister">
+              <p>
+                Não é cadastrado ainda ? <a href="cadastro.html">Clique aqui</a>
+              </p>
+            </div>
+            <div id="cardErr">
+              <p id="pErrLogin">*Preencha os campos corretamente</p>
+            </div>
+          </div>
+          <div class="finishLogin">
+            <button class="buttonLogin" onclick="login()">Entrar</button>
+            <div class="loadingLogin">
+              <div id="resultLogin"></div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div></div>
-</body>
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <h3 class="energia">Criado por um SPTecher, para outros SPTechers.</h3>
+      </div>
+    </div>
+  </body>
 </html>
+
+<script>
+  function login() {
+    var usernameVar = iptUsername.value;
+    var passwordVar = iptPassword.value;
+
+    if (usernameVar == "" || passwordVar == "") {
+      cardErr.style.display = "flex";
+      pErrLogin.style.color = "#ff0000";
+
+      return false;
+    } else {
+      setInterval(clearErr, 5000);
+    }
+
+    console.log("O login é: ", usernameVar);
+    console.log("A senha é: ", passwordVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        usernameServer: usernameVar,
+        passwordServer: passwordVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("To entrando no then do login() ta ?");
+
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resultLogin.style.display = "flex"
+          resultLogin.innerHTML = "Login Efetuado com sucesso!"
+          resultLogin.style.color = "#15ff00"
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.ID_USER = json.id;
+            sessionStorage.NAME_USER = json.username;
+            sessionStorage.ELEMENT_USER = json.fkElemento;
+
+            setTimeout(function () {
+              window.location = "comunidade.html";
+            }, 1000);
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+
+    return false;
+  }
+
+  function clearErr() {
+    cardErr.style.display = "none";
+  }
+</script>

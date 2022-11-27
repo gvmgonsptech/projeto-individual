@@ -1,11 +1,3 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
-
 CREATE DATABASE ordemparanormal;
 
 USE ordemparanormal;
@@ -28,12 +20,11 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE comentario (
-	id INT AUTO_INCREMENT,
-	fkUsuario INT,
-	PRIMARY KEY (id, fkUsuario),
-	FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
+	id INT AUTO_INCREMENT PRIMARY KEY,
 	titulo VARCHAR(45),
-	descricao VARCHAR(300)
+	descricao VARCHAR(300),
+	fkUsuario INT,
+    FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
 );
 
 INSERT INTO elemento (nome,descricao) VALUES 
@@ -50,3 +41,6 @@ UPDATE elemento SET fkOpositor = 1 where id = 4;
 select * from elemento;
 select * from usuario;
 select * from comentario;
+
+select * from usuario join elemento on elemento.id = fkElemento;
+SELECT * FROM usuario WHERE username = 'teste' AND senha = '12345678';
