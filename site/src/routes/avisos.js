@@ -11,7 +11,7 @@ router.get("/listar", function (req, res) {
     avisoController.listar(req, res);
 });
 
-router.get("/listar/:idUsuario", function (req, res) {
+router.get("/listar/:currentUser.id", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });
 
@@ -23,11 +23,11 @@ router.post("/publicar/:idUser", function (req, res) {
     avisoController.publicar(req, res);
 });
 
-router.put("/editar/:idAviso", function (req, res) {
+router.put("/editar/:idComent", function (req, res) {
     avisoController.editar(req, res);
 });
 
-router.delete("/deletar/:idAviso", function (req, res) {
+router.delete("/deletar/:idComent", function (req, res) {
     avisoController.deletar(req, res);
 });
 

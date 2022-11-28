@@ -11,18 +11,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ordem Paranormal - Comunidade</title>
 
-    <link rel="shortcut icon" href="./assets/img/simbolo_diario_de_deus.webp" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./assets/img/simbolo_diario_de_deus.webp"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/comunidade.css" />
     <script src="../js/funcoes.js"></script>
   </head>
 
-  <body onload="" style="background-color: #161618">
+  <body onload="atualizarFeed()">
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
       <div class="profile">
-        <img src="./assets/img/logo.png" alt="" style="width: 300px; background-color: transparent;">
+        <a href="index.html">
+          <img
+            src="./assets/img/logo.png"
+            alt=""
+            style="width: 300px; background-color: transparent"
+          />
+        </a>
 
         <div class="hello">
           <h3>Bem vindo(a), agente <span id="showUsername">usuário</span>!</h3>
@@ -30,10 +40,10 @@
         </div>
 
         <div class="descElement">
-          <p>
-            Marcados de <span id="currentElement">XPTO</span> normalmente tem
-            algumas características em comum as quais são:
+          <p id="textElement">
+            Marcados de <span id="currentElement">XPTO</span> tem tendência a serem pessoas: 
           </p>
+          <p class="eyesOpen">Olhos sempre abertos agente!</p>
         </div>
 
         <div class="logout" onclick="limparSessao()">
@@ -41,11 +51,11 @@
         </div>
       </div>
 
-      <div class="dash-right">
+      <div class="divRight">
         <div class="avisos">
           <div class="container">
-            <h1>Publicar um aviso</h1>
-            <div class="div-form">
+            <h1>Poste aqui o seu comentário:</h1>
+            <div class="divForm">
               <form
                 id="form_postagem"
                 method="post"
@@ -76,9 +86,9 @@
                 <button>Enviar</button>
               </form>
             </div>
-            <h1>Comentários nas ultimas 24hrs</h1>
-            <div class="div-results">
-              <div id="feed_container" class="feed-container"></div>
+            <h1>Posts:</h1>
+            <div class="posts">
+              <div id="containerFeed" class="containerFeed"></div>
             </div>
           </div>
         </div>
@@ -88,6 +98,10 @@
 </html>
 
 <script>
+  function limparFormulario() {
+    document.getElementById("form_postagem").reset();
+  }
+
   var currentUser = {
     id: sessionStorage.ID_USER,
     nome: sessionStorage.NAME_USER,
@@ -98,19 +112,167 @@
     showElement.innerHTML = "Sangue";
     showElement.style.textShadow = "0px 0px 8px red";
     currentElement.innerHTML = "Sangue";
+    textElement.innerHTML +=
+      "Mais emotivos, deixam as emoções como primeiro lugar, são pessoas que não escondem o que sentem e tentam canalizar os mesmos para se manter firmes.";
   } else if (currentUser.elemento == 2) {
     showElement.innerHTML = "Morte";
+    showElement.style.textShadow = "0px 0px 8px #32b9cd";
     currentElement.innerHTML = "Morte";
+    textElement.innerHTML +=
+      "Priorizam mais o tempo vivenciado, o que aconteceu no passado, tudo que já aconteceu e pode acontecer é valorizado da melhor forma por estas pessoas.";
   } else if (currentUser.elemento == 3) {
     showElement.innerHTML = "Energia";
     showElement.style.textShadow = "0px 0px 8px purple";
     currentElement.innerHTML = "Energia";
+    textElement.innerHTML +=
+      "O caos faz parte de um pouco delas, não existe organização, são uma icógnita para decifrar, podem ser pessoas mais fechadas, ou até mesmo bem extrovertidas";
   } else if (currentUser.elemento == 4) {
     showElement.innerHTML = "Conhecimento";
     showElement.style.textShadow = "0px 0px 8px yellow";
     currentElement.innerHTML = "Conhecimento";
+    textElement.innerHTML +=
+      "Colocam a razão em primeiro lugar, são as pessoas que mais pensam na possibilidade das suas consequências afetar o próximo, porém saber tudo é perder tudo...";
   } else {
     showElement.innerHTML = undefined;
   }
   showUsername.innerHTML = currentUser.nome;
+
+  function publicar() {
+    var idUser = currentUser.id;
+    var corpo = {
+      titulo: form_postagem.titulo.value,
+      descricao: form_postagem.descricao.value,
+    };
+
+    fetch(`/avisos/publicar/${idUser}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(corpo),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          window.alert(
+            "Post realizado com sucesso pelo usuario de ID: " + idUser + "!"
+          );
+          window.location = "comunidade.html";
+          limparFormulario();
+          finalizarAguardar();
+        } else if (resposta.status == 404) {
+          window.alert("Deu 404!");
+        } else {
+          throw (
+            "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+            resposta.status
+          );
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function deletar(idComent) {
+    console.log("Criar função de apagar post escolhido - ID" + idComent);
+    fetch(`/avisos/deletar/${idComent}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          window.alert(
+            "Post deletado com sucesso pelo usuario: " +
+              sessionStorage.getItem("NAME_USER") +
+              "!"
+          );
+          window.location = "comunidade.html";
+        } else if (resposta.status == 404) {
+          window.alert("Deu 404!");
+        } else {
+          throw (
+            "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+            resposta.status
+          );
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function atualizarFeed() {
+    //aguardar();
+    fetch("/avisos/listar")
+      .then(function (resposta) {
+        if (resposta.ok) {
+          if (resposta.status == 204) {
+            var feed = document.getElementById("containerFeed");
+            var mensagem = document.createElement("span");
+            mensagem.innerHTML = "Nenhum resultado encontrado.";
+            feed.appendChild(mensagem);
+            throw "Nenhum resultado encontrado!!";
+          }
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            var feed = document.getElementById("containerFeed");
+            feed.innerHTML = "";
+            for (let i = 0; i < resposta.length; i++) {
+              var publicacao = resposta[i];
+
+              // criando e manipulando elementos do HTML via JavaScript
+              var divPublicacao = document.createElement("div");
+              var spanTitulo = document.createElement("span");
+              var spanNome = document.createElement("span");
+              var divDescricao = document.createElement("div");
+              var divButtons = document.createElement("div");
+              var btnDeletar = document.createElement("button");
+
+              spanTitulo.innerHTML = `${publicacao.titulo} `;
+              spanNome.innerHTML = `${publicacao.username}`;
+              divDescricao.innerHTML = `${publicacao.descricao}`;
+              btnDeletar.innerHTML = "Deletar";
+
+              divPublicacao.className = "publicacao";
+              spanNome.className = "postAuthor";
+              spanTitulo.className = "postTitulo";
+              divDescricao.className = "postContent";
+
+              divButtons.className = "postButtons";
+
+              btnDeletar.className = "postButtonDel";
+              btnDeletar.id = "btnDeletar" + publicacao.idComent;
+              btnDeletar.setAttribute(
+                "onclick",
+                `deletar(${publicacao.idComent})`
+              );
+
+              divPublicacao.appendChild(spanNome);
+              divPublicacao.appendChild(spanTitulo);
+              divPublicacao.appendChild(divDescricao);
+              divPublicacao.appendChild(divButtons);
+              divButtons.appendChild(btnDeletar);
+              feed.appendChild(divPublicacao);
+            }
+
+            // finalizarAguardar();
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+        // finalizarAguardar();
+      });
+  }
 </script>
