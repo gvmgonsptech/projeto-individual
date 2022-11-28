@@ -107,8 +107,8 @@
             <button class="buttonRegister" onclick="register()">
               Cadastrar
             </button>
-            <div class="loadingRegister">
-              <img src="./assets/img/" alt="" />
+            <div class="loadingRegister" id="loadingRegister">
+              <img src="./assets/img/loadingWhellRegister.gif" alt="" />
               <div id="resultRegister"></div>
             </div>
           </div>
@@ -127,6 +127,7 @@
 
 <script>
   function register() {
+    aguardarRegister();
     var usernameVar = iptUsername.value;
     var passwordVar = iptPassword.value;
     var confirmPasswordVar = iptConfirmPassword.value;
@@ -146,20 +147,21 @@
       pErrRegister.innerHTML =
         "Verifique se os campos estão preenchidos corretamente";
 
+        finalizarAguardarRegister();
       return false;
 
-    } else if (passwordVar != confirmPasswordVar) {
+    } else if (passwordVar != confirmPasswordVar && passwordVar < 6 && passwordVar.length > 24 && confirmPasswordVar < 6 && confirmPasswordVar > 24) {
       cardErr.style.display = "block";
       pErrRegister.innerHTML =
         "Verifique se os campos estão preenchidos corretamente";
-      
+        finalizarAguardarRegister();
       return false;
 
     } else if (emailVar != confirmEmailVar) {
       cardErr.style.display = "block";
       pErrRegister.innerHTML =
         "Verifique se os campos estão preenchidos corretamente";
-        
+        finalizarAguardarRegister();
       return false;
 
     } else {
@@ -183,7 +185,7 @@
 
         if (resposta.ok) {
           cardErr.style.display = "block";
-          pErrRegister.style.color = "";
+          pErrRegister.style.color = "#10dd02";
           pErrRegister.innerHTML = "Cadastro feito com sucesso!";
 
           setTimeout(() => {
@@ -191,6 +193,7 @@
           }, "2000");
         } else {
           throw "Houve um erro ao tentar fazer seu cadastro, tente novamente!";
+          finalizarAguardarRegister()
         }
       })
       .catch(function (resposta) {

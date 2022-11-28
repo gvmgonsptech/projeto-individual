@@ -4,15 +4,15 @@
 }
 
 .boxLogin {
-    background-image: url("../assets/img/ordo_realitas.jpeg");
+    background-image: url(../assets/img/mesa.jpg);
     background-size: cover;
-    background-position-y: 20%;
+    background-position-y: 35%;
 }
 
 .boxLogin .container {
     width: 40%;
     padding: 2%;
-    height: 450px;
+    height: 500px;
     font-size: 1.3rem;
     border-radius: 10px;
     flex-direction: column;
@@ -72,6 +72,7 @@ a:hover {
 
 .buttonLogin {
     border: 0;
+    margin-bottom: 10px;
     width: 25%;
     height: 40px;
     color: #282828;
@@ -93,6 +94,10 @@ a:hover {
     align-items: center;
 }
 
+.linkRegister {
+    margin-bottom: 10px;
+}
+
 .resultLogin {
     display: none;
     justify-content: center;
@@ -101,10 +106,20 @@ a:hover {
 
 .finishLogin {
     display: flex;
+    background-color: transparent;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.finishLogin img {
+    background-color: transparent important; 
+    width: 70px;
+}
+
 .loadingLogin {
     display: none;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
 }

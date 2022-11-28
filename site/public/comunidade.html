@@ -21,7 +21,7 @@
     <script src="../js/funcoes.js"></script>
   </head>
 
-  <body onload="atualizarFeed()">
+  <body onload="atualizarFeed(),validarSessao()">
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
@@ -52,7 +52,7 @@
       </div>
 
       <div class="divRight">
-        <div class="avisos">
+        <div class="coments">
           <div class="container">
             <h1>Poste aqui o seu comentário:</h1>
             <div class="divForm">
@@ -135,7 +135,7 @@
   } else {
     showElement.innerHTML = undefined;
   }
-  showUsername.innerHTML = currentUser.nome;
+  showUsername.innerHTML = currentUser.nome
 
   function publicar() {
     var idUser = currentUser.id;

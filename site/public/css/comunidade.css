@@ -4,44 +4,59 @@
 }
 
 .profile {
-  border: 3px solid red;
-  position: fixed;
   top: 10%;
   left: 10px;
+  width: 25%;
   z-index: 999;
   height: 80vh;
-  width: 25%;
   display: flex;
+  position: fixed;
+  align-items: center;
   border-radius: 10px;
   flex-direction: column;
+  background-color: #1b1b1b;
   justify-content: space-evenly;
-  align-items: center;
-  background-color: #0f0f0f;
+  box-shadow: 0px 0px 12px #565656;
+}
+
+.profile a {
+  background-color: transparent;
 }
 
 .divRight {
-  padding-top: 10px;
-  border: 3px solid blue;
-  border-radius: 5px;
-  display: flex;
-  width: 70%;
-  flex-direction: column;
-  height: fit-content;
-  background-color: #161618;
-  position: relative;
+  left: 28%;
   top: 75px;
-  left: 26%;
+  width: 70%;
+  display: flex;
+  padding-top: 10px;
+  border-radius: 5px;
+  position: relative;
+  height: fit-content;
+  flex-direction: column;
+  background-color: #1b1b1b;
+  box-shadow: 0px 0px 12px #565656;
 }
 
 .divRight .container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  background-color: #1b1b1b;
 }
 
 .divRight .container h1 {
   margin-bottom: 10px;
   text-shadow: 0px 0px 16px #e900fa;
+  background-color: #1b1b1b;
+}
+
+.coments {
+  border-radius: 5px;
+  background-color: #1b1b1b;
+}
+
+.divForm {
+  background-color: #1b1b1b;
 }
 
 .divForm input {
@@ -78,6 +93,23 @@
   background-color: #b40ac0;
 }
 
+#form_postagem {
+  background-color: #1b1b1b;
+}
+
+#form_postagem label {
+  background-color: transparent;
+}
+
+.containerFeed {
+  background-color: #1b1b1b;
+  border-radius: 5px;
+}
+
+.posts {
+  background-color: #1b1b1b;
+}
+
 .header-left h1 {
   color: #32b9cd;
 }
@@ -86,6 +118,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: transparent;
   align-items: center;
   flex-direction: column;
 }
@@ -94,19 +127,23 @@
   color: #f1f1f1;
   font-weight: 300;
   font-size: 1.2rem;
+  background-color: transparent;
 }
 
 .hello h3 span {
   font-weight: bold;
+  background-color: transparent;
 }
 
 .hello p {
   color: #f1f1f1;
   font-weight: bold;
   font-size: 1.1rem;
+  background-color: transparent;
 }
 
 .hello p span {
+  background-color: transparent;
   text-shadow: 0px 0px 8px #32b9cd;
 }
 
@@ -117,11 +154,17 @@
   text-align: center;
   align-items: center;
   flex-direction: column;
+  background-color: transparent;
+}
+
+.descElement p,span {
+  background-color: transparent;
 }
 
 .eyesOpen{
   margin-top: 15px;
   font-weight: bold;
+  background-color: transparent;
 }
 
 .logout h3 {
@@ -157,13 +200,13 @@
   border-radius: 10px;
   margin-bottom: 20px;
   flex-direction: column;
+  background-color: #1b1b1b;
   box-shadow: 0px 0px 10px #505050;
-  background-color: #181818;
 }
 
 .postAuthor {
   margin-bottom: 10px;
-  background-color: #181818;
+  background-color: #1b1b1b;
   font-size: 1.3rem;
   font-weight: bold;
   text-shadow: 0px 0px 8px #e900fa;
@@ -171,7 +214,7 @@
 
 .postTitulo {
   margin-bottom: 15px;
-  background-color: #181818;
+  background-color: #1b1b1b;
   font-size: 1.1rem;
   font-weight: bold;
   text-shadow: 0px 0px 8px #e900fa;
@@ -179,12 +222,12 @@
 
 .postContent {
   font-size: 1rem;
-  background-color: #181818;
+  background-color: #1b1b1b;
   margin-bottom: 10px;
 }
 
 .postButtons {
-  background-color: #181818;
+  background-color: #1b1b1b;
  display: flex;
  width: 30%;
 }

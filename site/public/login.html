@@ -19,7 +19,7 @@
     <title>Ordem Paranormal - Login</title>
   </head>
 
-  <body>
+  <body onload="validarSessaoComunidade()">
     <!-- HEADER -->
     <div class="header">
       <div class="container">
@@ -74,7 +74,8 @@
           </div>
           <div class="finishLogin">
             <button class="buttonLogin" onclick="login()">Entrar</button>
-            <div class="loadingLogin">
+            <div class="loadingLogin" id="loadingLogin">
+              <img src="./assets/img/loadingWhellLogin.gif" alt="">
               <div id="resultLogin"></div>
             </div>
           </div>
@@ -93,6 +94,7 @@
 
 <script>
   function login() {
+    aguardarLogin();
     var usernameVar = iptUsername.value;
     var passwordVar = iptPassword.value;
 
@@ -137,13 +139,14 @@
 
             setTimeout(function () {
               window.location = "comunidade.html";
-            }, 1000);
+            }, 2000);
           });
         } else {
           console.log("Houve um erro ao tentar realizar o login!");
 
           resposta.text().then((texto) => {
             console.error(texto);
+            finalizarAguardarLogin()
           });
         }
       })

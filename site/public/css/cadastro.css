@@ -10,7 +10,6 @@
   height: 30%;
   width: 40%;
   justify-content: space-evenly;
-  align-items: center;
   font-size: 1.4rem;
   flex-direction: column;
 }
@@ -22,17 +21,18 @@
 
 .labelRegister {
   font-weight: bold;
+  margin-bottom: 5px;
   text-shadow: 0px 0px 8px #e900fa;
 }
 
 .inputRegister {
-  width: 40%;
+  width: 100%;
   height: 35px;
   border: 0;
   color: #0f0f0f;
   font-size: 1.3rem;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-bottom: 20px;
   background-color: #f1f1f1;
 }
@@ -43,6 +43,7 @@
 }
 
 .inputRegister::placeholder {
+  color: #0f0f0f;
   text-align: center;
   font-size: 1.3rem;
   font-weight: bold;
@@ -68,8 +69,9 @@
 
 .finishRegister{
   display: flex;
-  width: 80%;
+  width: 100%;
   height: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -91,4 +93,12 @@
   background-color: #9d00a9;
   color: #f1f1f1c2;
   box-shadow: 0px 0px 30px #9d00a9;
+}
+
+.loadingRegister {
+  display: none;
+}
+
+.loadingRegister img {
+  width: 80px;
 }
