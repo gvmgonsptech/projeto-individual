@@ -147,23 +147,26 @@
       pErrRegister.innerHTML =
         "Verifique se os campos estão preenchidos corretamente";
 
-        finalizarAguardarRegister();
+      finalizarAguardarRegister();
       return false;
-
-    } else if (passwordVar != confirmPasswordVar && passwordVar < 6 && passwordVar.length > 24 && confirmPasswordVar < 6 && confirmPasswordVar > 24) {
+    } else if (
+      passwordVar != confirmPasswordVar &&
+      passwordVar < 6 &&
+      passwordVar.length > 24 &&
+      confirmPasswordVar < 6 &&
+      confirmPasswordVar > 24
+    ) {
       cardErr.style.display = "block";
       pErrRegister.innerHTML =
         "Verifique se os campos estão preenchidos corretamente";
-        finalizarAguardarRegister();
+      finalizarAguardarRegister();
       return false;
-
     } else if (emailVar != confirmEmailVar) {
       cardErr.style.display = "block";
       pErrRegister.innerHTML =
         "Verifique se os campos estão preenchidos corretamente";
-        finalizarAguardarRegister();
+      finalizarAguardarRegister();
       return false;
-
     } else {
       setInterval(clearErr, 5000);
     }
@@ -193,7 +196,7 @@
           }, "2000");
         } else {
           throw "Houve um erro ao tentar fazer seu cadastro, tente novamente!";
-          finalizarAguardarRegister()
+          finalizarAguardarRegister();
         }
       })
       .catch(function (resposta) {

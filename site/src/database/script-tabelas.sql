@@ -38,9 +38,9 @@ UPDATE elemento SET fkOpositor = 3 where id = 2;
 UPDATE elemento SET fkOpositor = 4 where id = 3;
 UPDATE elemento SET fkOpositor = 1 where id = 4;
 
-select * from elemento;
-select * from usuario;
-select * from comentario;
+SELECT * FROM elemento;
+SELECT * FROM usuario;
+SELECT * FROM comentario;
 
-select * from usuario join elemento on elemento.id = fkElemento;
-SELECT * FROM usuario WHERE username = 'teste' AND senha = '12345678';
+
+ALTER TABLE usuario ADD CONSTRAINT chk_email CHECK(email LIKE '%_@__%.__%');
