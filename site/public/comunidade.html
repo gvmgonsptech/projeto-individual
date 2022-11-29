@@ -41,7 +41,7 @@
 
         <div class="descElement">
           <p>
-            Existem na comunidade <span id="qtdMarcados"></span>marcados do seu
+            Existem na comunidade <span id="qtdMarcados"></span> marcados do seu
             elemento
           </p>
           <p id="textElement">
@@ -113,13 +113,15 @@
     elemento: sessionStorage.ELEMENT_USER,
   };
 
+  var qtd
   var elemento = currentUser.elemento;
-  fetch(`/avisos/mostrarQtdElemento/${elemento}`).then(function (resposta) {
+  fetch(`/avisos/mostrarQtdElemento/${elemento}`)
+  .then(function (resposta) {
     if (resposta.ok) {
-      resposta.json().then(function (response) {
-        console.log(response[0].elemento);
-        var qtd = response[0].elemento
-        qtdElemento.innerHTML = qtd;
+      resposta.json().then(async function (response) {
+        console.log(response[0].qtdElemento);
+        var qtd = response[0].qtdElemento
+        qtdMarcados.innerHTML = qtd;
       });
     }
   });

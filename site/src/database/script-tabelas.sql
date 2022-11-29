@@ -44,3 +44,7 @@ SELECT * FROM comentario;
 
 
 ALTER TABLE usuario ADD CONSTRAINT chk_email CHECK(email LIKE '%_@__%.__%');
+select count(fkElemento) from usuario where fkElemento = 1 group by fkElemento;
+select count(fkElemento) from usuario where fkElemento = 2 group by fkElemento;
+select count(fkElemento) from usuario where fkElemento = 3 group by fkElemento;
+select count(fkElemento) from usuario where fkElemento = 4 group by fkElemento;
