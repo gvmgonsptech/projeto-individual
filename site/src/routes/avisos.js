@@ -19,6 +19,10 @@ router.get("/pesquisar/:descricao", function (req, res) {
     avisoController.pesquisarDescricao(req, res);
 });
 
+router.get("/mostrarQtdElemento/:elemento", function (req, res) {
+    avisoController.mostrarQtdElemento(req, res);
+});
+
 router.post("/publicar/:idUser", function (req, res) {
     avisoController.publicar(req, res);
 });

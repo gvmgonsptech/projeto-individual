@@ -40,6 +40,10 @@
         </div>
 
         <div class="descElement">
+          <p>
+            Existem na comunidade <span id="qtdMarcados"></span>marcados do seu
+            elemento
+          </p>
           <p id="textElement">
             Marcados de <span id="currentElement">XPTO</span> tem tendência a
             serem pessoas:
@@ -109,25 +113,36 @@
     elemento: sessionStorage.ELEMENT_USER,
   };
 
-  if (currentUser.elemento == 1) {
+  var elemento = currentUser.elemento;
+  fetch(`/avisos/mostrarQtdElemento/${elemento}`).then(function (resposta) {
+    if (resposta.ok) {
+      resposta.json().then(function (response) {
+        console.log(response[0].elemento);
+        var qtd = response[0].elemento
+        qtdElemento.innerHTML = qtd;
+      });
+    }
+  });
+
+  if (elemento == 1) {
     showElement.innerHTML = "Sangue";
     showElement.style.textShadow = "0px 0px 8px red";
     currentElement.innerHTML = "Sangue";
     textElement.innerHTML +=
       "Mais emotivos, deixam as emoções como primeiro lugar, são pessoas que não escondem o que sentem e tentam canalizar os mesmos para se manter firmes.";
-  } else if (currentUser.elemento == 2) {
+  } else if (elemento == 2) {
     showElement.innerHTML = "Morte";
     showElement.style.textShadow = "0px 0px 8px #32b9cd";
     currentElement.innerHTML = "Morte";
     textElement.innerHTML +=
       "Priorizam mais o tempo vivenciado, o que aconteceu no passado, tudo que já aconteceu e pode acontecer é valorizado da melhor forma por estas pessoas.";
-  } else if (currentUser.elemento == 3) {
+  } else if (elemento == 3) {
     showElement.innerHTML = "Energia";
     showElement.style.textShadow = "0px 0px 8px purple";
     currentElement.innerHTML = "Energia";
     textElement.innerHTML +=
       "O caos faz parte de um pouco delas, não existe organização, são uma icógnita para decifrar, podem ser pessoas mais fechadas, ou até mesmo bem extrovertidas";
-  } else if (currentUser.elemento == 4) {
+  } else if (elemento == 4) {
     showElement.innerHTML = "Conhecimento";
     showElement.style.textShadow = "0px 0px 8px yellow";
     currentElement.innerHTML = "Conhecimento";
